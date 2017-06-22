@@ -1,11 +1,13 @@
 package com.example.bruce.patient2patient;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageButton;
 
 /**
  * Created by bruce on 6/21/17.
@@ -54,6 +56,17 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
 
+            }
+        });
+
+        // Setting up bottom dash board
+        ImageButton buttonProfile = (ImageButton) findViewById(R.id.profile_button);
+
+        buttonProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ProfilePage.class);
+                startActivity(intent);
             }
         });
     }
