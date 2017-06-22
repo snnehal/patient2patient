@@ -24,7 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-public class signIn extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+public class signInActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
     private SignInButton signInButton;
     private GoogleApiClient mGoogleApiClient;
