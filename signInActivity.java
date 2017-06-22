@@ -41,8 +41,9 @@ public class signInActivity extends AppCompatActivity implements GoogleApiClient
         setContentView(R.layout.activity_sign_in);
 
         mAuth = FirebaseAuth.getInstance();
-
         signInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        Intent intent1 = new Intent(this, HomeActivity.class);
+        startActivityForResult(intent1, 0);
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -50,10 +51,13 @@ public class signInActivity extends AppCompatActivity implements GoogleApiClient
                 .requestEmail()
                 .build();
 
+
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signIn();
+                Intent intent = new Intent(v.getContext(), HomeActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -66,6 +70,10 @@ public class signInActivity extends AppCompatActivity implements GoogleApiClient
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
+//        if (currentUser != null) {
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        //}
         // Go to home page
     }
 
